@@ -16,7 +16,7 @@ public class Siswa extends Pengguna {
 
     public final void setJenjang(final String jenjang) {
         if (jenjang == null || jenjang.trim().isEmpty()) {
-            System.out.println("[Peringatan] Jenjang tidak boleh kosong!");
+            System.out.println("Jenjang tidak boleh kosong!");
             return;
         }
         this.jenjang = jenjang.trim();
@@ -28,7 +28,7 @@ public class Siswa extends Pengguna {
 
     public final void setMataPelajaran(final String mataPelajaran) {
         if (mataPelajaran == null || mataPelajaran.trim().isEmpty()) {
-            System.out.println("[Peringatan] Mata pelajaran tidak boleh kosong!");
+            System.out.println("Mata pelajaran tidak boleh kosong!");
             return;
         }
         this.mataPelajaran = mataPelajaran.trim();

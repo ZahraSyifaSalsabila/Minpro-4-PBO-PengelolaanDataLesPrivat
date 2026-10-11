@@ -22,7 +22,7 @@ public abstract class Pengguna implements CetakInfo {
 
     public final void setNama(final String nama) {
         if (nama == null || nama.trim().isEmpty()) {
-            System.out.println("[Peringatan] Nama tidak boleh kosong!");
+            System.out.println("Nama tidak boleh kosong!");
             return;
         }
         this.nama = nama.trim();

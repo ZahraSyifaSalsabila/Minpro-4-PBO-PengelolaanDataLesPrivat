@@ -1,5 +1,8 @@
 package Controller;
 
+import dao.JadwalDAO;
+import dao.SiswaDAO;
+import dao.TutorDAO;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.Jadwal;
@@ -8,9 +11,9 @@ import model.Tutor;
 import view.LesPrivatView;
 
 public class LesPrivatController implements PengelolaData {
-    private final ArrayList<Siswa> daftarSiswa = new ArrayList<>();
-    private final ArrayList<Tutor> daftarTutor = new ArrayList<>();
-    private final ArrayList<Jadwal> daftarJadwal = new ArrayList<>();
+    private final SiswaDAO siswaDAO = new SiswaDAO();
+    private final TutorDAO tutorDAO = new TutorDAO();
+    private final JadwalDAO jadwalDAO = new JadwalDAO();
 
     private final Scanner scanner;
     private final LesPrivatView view;
@@ -18,10 +21,6 @@ public class LesPrivatController implements PengelolaData {
     public LesPrivatController() {
         this.scanner = new Scanner(System.in);
         this.view = new LesPrivatView(scanner);
-
-        daftarSiswa.add(new Siswa(1, "Zahra", "SMA", "Matematika"));
-        daftarTutor.add(new Tutor(1, "Rifqy", "Matematika", "08123456789"));
-        daftarJadwal.add(new Jadwal(1, 1, 1, "Senin", "16:00"));
     }
 
     public void run() {
@@ -46,21 +45,21 @@ public class LesPrivatController implements PengelolaData {
     }
 
     private boolean isIdSiswaAda(final int id) {
-        for (Siswa s : daftarSiswa) {
+        for (Siswa s : siswaDAO.getAllSiswa()) {
             if (s.getId() == id) return true;
         }
         return false;
     }
 
     private boolean isIdTutorAda(final int id) {
-        for (Tutor t : daftarTutor) {
+        for (Tutor t : tutorDAO.getAllTutor()) {
             if (t.getId() == id) return true;
         }
         return false;
     }
 
     private boolean isIdJadwalAda(final int id) {
-        for (Jadwal j : daftarJadwal) {
+        for (Jadwal j : jadwalDAO.getAllJadwal()) {
             if (j.getIdJadwal() == id) return true;
         }
         return false;
@@ -81,8 +80,10 @@ public class LesPrivatController implements PengelolaData {
             String jenjang = view.inputTeksWajib("Jenjang: ");
             String mapel = view.inputTeksWajib("Mata Pelajaran: ");
 
-            daftarSiswa.add(new Siswa(id, nama, jenjang, mapel));
-            view.tampilkanPesan("Data siswa berhasil ditambahkan.");
+            Siswa siswaBaru = new Siswa(id, nama, jenjang, mapel);
+            if (siswaDAO.insertSiswa(siswaBaru)) {
+                view.tampilkanPesan("Data siswa berhasil ditambahkan ke database.");
+            }
 
         } else if (pilih == 2) {
             int id = view.inputAngkaWajib("ID Tutor: ");
@@ -94,8 +95,10 @@ public class LesPrivatController implements PengelolaData {
             String keahlian = view.inputTeksWajib("Keahlian: ");
             String telepon = view.inputTeksWajib("No. Telepon: ");
 
-            daftarTutor.add(new Tutor(id, nama, keahlian, telepon));
-            view.tampilkanPesan("Data tutor berhasil ditambahkan.");
+            Tutor tutorBaru = new Tutor(id, nama, keahlian, telepon);
+            if (tutorDAO.insertTutor(tutorBaru)) {
+                view.tampilkanPesan("Data tutor berhasil ditambahkan ke database.");
+            }
 
         } else if (pilih == 3) {
             int id = view.inputAngkaWajib("ID Jadwal: ");
@@ -119,8 +122,10 @@ public class LesPrivatController implements PengelolaData {
             String hari = view.inputTeksWajib("Hari: ");
             String jam = view.inputTeksWajib("Jam: ");
 
-            daftarJadwal.add(new Jadwal(id, idSiswa, idTutor, hari, jam));
-            view.tampilkanPesan("Data jadwal berhasil ditambahkan.");
+            Jadwal jadwalBaru = new Jadwal(id, idSiswa, idTutor, hari, jam);
+            if (jadwalDAO.insertJadwal(jadwalBaru)) {
+                view.tampilkanPesan("Data jadwal berhasil ditambahkan ke database.");
+            }
         }
     }
 
@@ -131,6 +136,7 @@ public class LesPrivatController implements PengelolaData {
 
         if (pilih == 1) {
             view.tampilkanPesan("\n=== DATA SISWA ===");
+            ArrayList<Siswa> daftarSiswa = siswaDAO.getAllSiswa();
             if (daftarSiswa.isEmpty()) {
                 view.tampilkanPesan("Belum ada data siswa.");
             } else {
@@ -141,6 +147,7 @@ public class LesPrivatController implements PengelolaData {
             }
         } else if (pilih == 2) {
             view.tampilkanPesan("\n=== DATA TUTOR ===");
+            ArrayList<Tutor> daftarTutor = tutorDAO.getAllTutor();
             if (daftarTutor.isEmpty()) {
                 view.tampilkanPesan("Belum ada data tutor.");
             } else {
@@ -151,6 +158,7 @@ public class LesPrivatController implements PengelolaData {
             }
         } else if (pilih == 3) {
             view.tampilkanPesan("\n=== DATA JADWAL ===");
+            ArrayList<Jadwal> daftarJadwal = jadwalDAO.getAllJadwal();
             if (daftarJadwal.isEmpty()) {
                 view.tampilkanPesan("Belum ada data jadwal.");
             } else {
@@ -170,36 +178,40 @@ public class LesPrivatController implements PengelolaData {
         int pilih = view.inputAngkaWajib("Pilih kategori (1-3): ", 1, 3);
 
         if (pilih == 1) {
-            int id = view.inputAngkaWajib("Masukkan ID Siswa: ");
-            for (Siswa s : daftarSiswa) {
+            int id = view.inputAngkaWajib("Masukkan ID Siswa yang akan diupdate: ");
+            for (Siswa s : siswaDAO.getAllSiswa()) {
                 if (s.getId() == id) {
                     s.setNama(view.inputTeksOpsional("Nama Baru", s.getNama()));
                     s.setJenjang(view.inputTeksOpsional("Jenjang Baru", s.getJenjang()));
                     s.setMataPelajaran(view.inputTeksOpsional("Mata Pelajaran Baru", s.getMataPelajaran()));
 
-                    view.tampilkanPesan("Data siswa berhasil diupdate.");
+                    if (siswaDAO.updateSiswa(s)) {
+                        view.tampilkanPesan("Data siswa berhasil diupdate di database.");
+                    }
                     return;
                 }
             }
             view.tampilkanPesan("Data siswa tidak ditemukan.");
 
         } else if (pilih == 2) {
-            int id = view.inputAngkaWajib("Masukkan ID Tutor: ");
-            for (Tutor t : daftarTutor) {
+            int id = view.inputAngkaWajib("Masukkan ID Tutor yang akan diupdate: ");
+            for (Tutor t : tutorDAO.getAllTutor()) {
                 if (t.getId() == id) {
                     t.setNama(view.inputTeksOpsional("Nama Baru", t.getNama()));
                     t.setKeahlian(view.inputTeksOpsional("Keahlian Baru", t.getKeahlian()));
                     t.setNoTelepon(view.inputTeksOpsional("No. Telepon Baru", t.getNoTelepon()));
 
-                    view.tampilkanPesan("Data tutor berhasil diupdate.");
+                    if (tutorDAO.updateTutor(t)) {
+                        view.tampilkanPesan("Data tutor berhasil diupdate di database.");
+                    }
                     return;
                 }
             }
             view.tampilkanPesan("Data tutor tidak ditemukan.");
 
         } else if (pilih == 3) {
-            int id = view.inputAngkaWajib("Masukkan ID Jadwal: ");
-            for (Jadwal j : daftarJadwal) {
+            int id = view.inputAngkaWajib("Masukkan ID Jadwal yang akan diupdate: ");
+            for (Jadwal j : jadwalDAO.getAllJadwal()) {
                 if (j.getIdJadwal() == id) {
                     int idSiswaBaru = view.inputAngkaOpsional("ID Siswa Baru", j.getIdSiswa());
                     while (!isIdSiswaAda(idSiswaBaru)) {
@@ -218,7 +230,9 @@ public class LesPrivatController implements PengelolaData {
                     j.setHari(view.inputTeksOpsional("Hari Baru", j.getHari()));
                     j.setJam(view.inputTeksOpsional("Jam Baru", j.getJam()));
 
-                    view.tampilkanPesan("Data jadwal berhasil diupdate.");
+                    if (jadwalDAO.updateJadwal(j)) {
+                        view.tampilkanPesan("Data jadwal berhasil diupdate di database.");
+                    }
                     return;
                 }
             }
@@ -232,49 +246,40 @@ public class LesPrivatController implements PengelolaData {
         int pilih = view.inputAngkaWajib("Pilih kategori (1-3): ", 1, 3);
 
         if (pilih == 1) {
-            int id = view.inputAngkaWajib("Masukkan ID Siswa: ");
-            for (Siswa s : daftarSiswa) {
-                if (s.getId() == id) {
-                    daftarSiswa.remove(s);
-                    view.tampilkanPesan("Data siswa berhasil dihapus.");
-                    return;
-                }
+            int id = view.inputAngkaWajib("Masukkan ID Siswa yang akan dihapus: ");
+            if (siswaDAO.deleteSiswa(id)) {
+                view.tampilkanPesan("Data siswa berhasil dihapus dari database.");
+            } else {
+                view.tampilkanPesan("Gagal menghapus atau data siswa tidak ditemukan.");
             }
-            view.tampilkanPesan("Data siswa tidak ditemukan.");
 
         } else if (pilih == 2) {
-            int id = view.inputAngkaWajib("Masukkan ID Tutor: ");
-            for (Tutor t : daftarTutor) {
-                if (t.getId() == id) {
-                    daftarTutor.remove(t);
-                    view.tampilkanPesan("Data tutor berhasil dihapus.");
-                    return;
-                }
+            int id = view.inputAngkaWajib("Masukkan ID Tutor yang akan dihapus: ");
+            if (tutorDAO.deleteTutor(id)) {
+                view.tampilkanPesan("Data tutor berhasil dihapus dari database.");
+            } else {
+                view.tampilkanPesan("Gagal menghapus atau data tutor tidak ditemukan.");
             }
-            view.tampilkanPesan("Data tutor tidak ditemukan.");
 
         } else if (pilih == 3) {
-            int id = view.inputAngkaWajib("Masukkan ID Jadwal: ");
-            for (Jadwal j : daftarJadwal) {
-                if (j.getIdJadwal() == id) {
-                    daftarJadwal.remove(j);
-                    view.tampilkanPesan("Data jadwal berhasil dihapus.");
-                    return;
-                }
+            int id = view.inputAngkaWajib("Masukkan ID Jadwal yang akan dihapus: ");
+            if (jadwalDAO.deleteJadwal(id)) {
+                view.tampilkanPesan("Data jadwal berhasil dihapus dari database.");
+            } else {
+                view.tampilkanPesan("Gagal menghapus atau data jadwal tidak ditemukan.");
             }
-            view.tampilkanPesan("Data jadwal tidak ditemukan.");
         }
     }
 
     private String cariNamaSiswa(final int id) {
-        for (Siswa s : daftarSiswa) {
+        for (Siswa s : siswaDAO.getAllSiswa()) {
             if (s.getId() == id) return s.getNama();
         }
         return "Tidak ditemukan";
     }
 
     private String cariNamaTutor(final int id) {
-        for (Tutor t : daftarTutor) {
+        for (Tutor t : tutorDAO.getAllTutor()) {
             if (t.getId() == id) return t.getNama();
         }
         return "Tidak ditemukan";

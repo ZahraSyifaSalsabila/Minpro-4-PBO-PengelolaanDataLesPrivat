@@ -28,7 +28,7 @@ public class Jadwal implements CetakInfo {
 
     public final void setIdSiswa(final int idSiswa) {
         if (idSiswa <= 0) {
-            System.out.println("[Peringatan] ID Siswa harus lebih besar dari 0!");
+            System.out.println("ID Siswa harus lebih besar dari 0!");
             return;
         }
         this.idSiswa = idSiswa;
@@ -52,7 +52,7 @@ public class Jadwal implements CetakInfo {
 
     public final void setHari(final String hari) {
         if (hari == null || hari.trim().isEmpty()) {
-            System.out.println("[Peringatan] Hari tidak boleh kosong!");
+            System.out.println("Hari tidak boleh kosong!");
             return;
         }
         this.hari = hari.trim();
@@ -64,7 +64,7 @@ public class Jadwal implements CetakInfo {
 
     public final void setJam(final String jam) {
         if (jam == null || jam.trim().isEmpty()) {
-            System.out.println("[Peringatan] Jam tidak boleh kosong!");
+            System.out.println("Jam tidak boleh kosong!");
             return;
         }
         this.jam = jam.trim();
