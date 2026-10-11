@@ -81,9 +81,10 @@ Menu Tampilkan Data digunakan untuk melihat data yang sudah tersimpan dalam prog
 
 a. Jika pengguna memilih Data Siswa, program melakukan perulangan pada daftarSiswa dan menampilkan setiap data siswa yang tersimpan. Informasi yang ditampilkan yaitu ID, nama, jenjang, dan mata pelajaran.
 
-Contoh tampilkan data siswa:
+**Contoh tampilkan data siswa:**
 
-image
+<img width="494" height="231" alt="Screenshot 2026-10-05 212340" src="https://github.com/user-attachments/assets/26796f32-94c5-4a72-aa7a-d6ae338e7bd8" />
+
 b. Jika pengguna memilih Data Tutor, program melakukan perulangan pada daftarTutor dan menampilkan informasi setiap tutor. Informasi yang ditampilkan yaitu ID, nama, keahlian, dan nomor telepon.
 
 **Contoh tampilkan data tutor:**
@@ -271,33 +272,41 @@ c. Penerapan inheritance membuat data yang sama tidak perlu dibuat berulang pada
 ## MVC
 Program menerapkan pemisahan package untuk mengatur bagian-bagian program berdasarkan fungsinya.
 
-a. Package Model
+**a. Package Model**
 
 Package model berisi class Pengguna, Siswa, Tutor, dan Jadwal yang digunakan untuk membentuk data dalam program. Pengguna digunakan sebagai dasar data yang dimiliki oleh Siswa dan Tutor, Siswa digunakan untuk menyimpan data siswa, Tutor untuk menyimpan data tutor, dan Jadwal untuk menyimpan data jadwal les. Pembagian package tersebut membuat bagian untuk menjalankan program, mengelola proses, dan membentuk data menjadi lebih teratur.
 
-Package Model:
+**Package Model:**
 
 <img width="248" height="83" alt="image" src="https://github.com/user-attachments/assets/b2555063-6fe2-47ea-907f-f7657476b2bc" />
 
-b. Package Controller
+**b. Package Controller**
 
 Package Controller berisi class LesPrivatController dan LayananLesPrivat. LesPrivatController digunakan sebagai penghubung antara MainApp dengan LayananLesPrivat, sedangkan LayananLesPrivat berisi proses utama pengelolaan data seperti menambah, menampilkan, mengubah, dan menghapus data, serta melakukan pencarian nama siswa dan tutor dan validasi input.
 
-Package Controller:
+**Package Controller:**
 
 <img width="241" height="41" alt="image" src="https://github.com/user-attachments/assets/7535b5b7-e832-4ea0-8779-e07defd6346d" />
 
-c. Package View
+**c. Package View**
 
 Package view berisi LesPrivatView yang bertanggung jawab penuh atas interaksi konsol dan penerimaan input. Alur program berjalan melalui perulangan while di menu utama yang memproses pilihan pengguna lewat switch-case dan meneruskannya ke controller.
 
-Package View:
+**Package View:**
 
 <img width="244" height="31" alt="image" src="https://github.com/user-attachments/assets/de47e139-f0e3-43af-ab62-51c388ae4cc7" />
 
-Screenshoot Struktur Folder:
+## Screenshoot Struktur Folder:
 
 <img width="275" height="392" alt="image" src="https://github.com/user-attachments/assets/64b8f6b8-1fd9-4fd8-aa6f-6df48cc3e6d3" />
+
+Setelah MVC dibuat seperti ditampilan screenshoot tiap package MVC di atas, terdapat pula package yang melengkapi program ini yaitu:
+
+**Package Model**
+
+**Package Config**
+
+**Package DAO**
 
 ## Abstraction
 
