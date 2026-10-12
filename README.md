@@ -13,23 +13,6 @@ Setiap pilihan pada menu utama akan diteruskan melalui LesPrivatController. LesP
 
 Jika pengguna memilih menu nomor 1, program menjalankan proses Tambah Data. Jika memilih nomor 2, program menjalankan proses Tampilkan Data. Nomor 3 digunakan untuk Update Data, nomor 4 untuk Hapus Data, sedangkan nomor 5 digunakan untuk keluar dari program.
 
-**1. Tambah Data**
-
-Menu Tambah Data digunakan untuk memasukkan data baru ke dalam sistem. Setelah memilih menu ini, pengguna akan diberikan tiga pilihan data yang dapat ditambahkan, yaitu Siswa, Tutor, dan Jadwal.
-
-**2. Tampilkan Data**
-
-Menu Tampilkan Data digunakan untuk melihat data yang sudah tersimpan dalam program. Pengguna dapat memilih data yang ingin ditampilkan, yaitu Data Siswa, Data Tutor, atau Data Jadwal.
-
-**3. Update Data**
-Menu Update Data digunakan untuk mengubah informasi dari data yang sudah tersimpan.
-
-**4. Hapus Data**
-Menu Hapus Data digunakan untuk menghapus data yang sudah tidak diperlukan.
-
-**5. Keluar**
-Menu Keluar digunakan untuk menghentikan program.
-
 **a. Data Siswa**
 
 Jika pengguna memilih menu Data Siswa, program akan meminta ID Siswa, nama, jenjang, dan mata pelajaran. ID harus berupa angka dan tidak boleh sama dengan ID siswa lain, sedangkan data teks tidak boleh kosong. Setelah semua data valid, program menyimpan data siswa ke dalam ArrayList sehingga dapat ditampilkan melalui menu Tampilkan Data, diubah dimenu update, atau dihapus dimenu hapus data.
@@ -310,16 +293,16 @@ Hubungkan kelas-kelas DAO ke dalam LesPrivatController. Controller tidak lagi me
 
 Struktur program dibagi menjadi beberapa package dan class sesuai dengan fungsinya.
 
-1. MainApp digunakan sebagai titik awal untuk memulai program.
+a. MainApp digunakan sebagai titik awal untuk memulai program.
 
-2. LesPrivatController digunakan sebagai penghubung dan pengatur alur logika antara menu, validasi input, serta proses layanan.
+b. LesPrivatController digunakan sebagai penghubung dan pengatur alur logika antara menu, validasi input, serta proses layanan.
 
-3. LayananLesPrivat digunakan untuk mengelola proses CRUD, validasi duplikasi ID, dan penyimpanan data menggunakan ArrayList.
+c. LayananLesPrivat digunakan untuk mengelola proses CRUD, validasi duplikasi ID, dan penyimpanan data menggunakan ArrayList.
 
-4. Pengguna bertindak sebagai abstract class (implements CetakInfo) yang menjadi superclass bagi Siswa dan Tutor.
+d. Pengguna bertindak sebagai abstract class (implements CetakInfo) yang menjadi superclass bagi Siswa dan Tutor.
 
-5. Siswa, Tutor, dan Jadwal digunakan sebagai class entity pembentuk data utama, di mana Jadwal juga ikut mengimplementasikan interface CetakInfo.
+e. Siswa, Tutor, dan Jadwal digunakan sebagai class entity pembentuk data utama, di mana Jadwal juga ikut mengimplementasikan interface CetakInfo.
 
-6. DatabaseConnection (di package config) digunakan untuk mengelola koneksi utama antara aplikasi Java dan database MySQL.
+f. DatabaseConnection (di package config) digunakan untuk mengelola koneksi utama antara aplikasi Java dan database MySQL.
 
-7. Kelas-kelas DAO (SiswaDAO, TutorDAO, JadwalDAO) digunakan untuk mengelola proses CRUD dan interaksi data langsung ke database menggunakan PreparedStatement.
+g. Kelas-kelas DAO (SiswaDAO, TutorDAO, JadwalDAO) digunakan untuk mengelola proses CRUD dan interaksi data langsung ke database menggunakan PreparedStatement.
