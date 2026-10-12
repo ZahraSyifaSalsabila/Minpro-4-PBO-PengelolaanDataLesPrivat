@@ -7,18 +7,6 @@ Program ini menyediakan lima menu utama yaitu Tambah Data, Tampilkan Data, Updat
 ## Penjelasan Alur Program
 Ketika program dijalankan melalui class MainApp, program akan menyiapkan Scanner untuk menerima input dari pengguna. Setelah itu, program membuat object yang digunakan untuk mengelola data les privat dan menampilkan menu utama.
 
-Menu utama terdiri dari:
-
-1. Tambah Data
-   
-2. Tampilkan Data
- 
-3. Update Data
- 
-4. Hapus Data
- 
-5. Keluar
-
 Menu utama dijalankan menggunakan perulangan while sehingga menu akan terus muncul dan dapat digunakan berkali-kali selama program masih berjalan. Pilihan yang dimasukkan pengguna kemudian diproses menggunakan switch-case.
 
 Setiap pilihan pada menu utama akan diteruskan melalui LesPrivatController. LesPrivatController kemudian menjalankan method yang sesuai pada LayananLesPrivat. Dengan begitu, MainApp tidak langsung melakukan proses tambah, tampil, update, atau hapus data, tetapi meneruskan proses tersebut ke bagian yang memang digunakan untuk mengelola data.
@@ -29,86 +17,32 @@ Jika pengguna memilih menu nomor 1, program menjalankan proses Tambah Data. Jika
 
 Menu Tambah Data digunakan untuk memasukkan data baru ke dalam sistem. Setelah memilih menu ini, pengguna akan diberikan tiga pilihan data yang dapat ditambahkan, yaitu Siswa, Tutor, dan Jadwal.
 
+**2. Tampilkan Data**
+
+Menu Tampilkan Data digunakan untuk melihat data yang sudah tersimpan dalam program. Pengguna dapat memilih data yang ingin ditampilkan, yaitu Data Siswa, Data Tutor, atau Data Jadwal.
+
+**3. Update Data**
+Menu Update Data digunakan untuk mengubah informasi dari data yang sudah tersimpan.
+
+**4. Hapus Data**
+Menu Hapus Data digunakan untuk menghapus data yang sudah tidak diperlukan.
+
+**5. Keluar**
+Menu Keluar digunakan untuk menghentikan program.
+
 **a. Data Siswa**
 
-Jika pengguna memilih Data Siswa, program akan meminta beberapa informasi, yaitu ID Siswa, Nama, Jenjang, dan Mata Pelajaran.
-
-ID Siswa harus berupa angka. Sebelum data ditambahkan, program akan memeriksa apakah ID tersebut sudah digunakan oleh siswa lain. Jika ID sudah digunakan, program akan menampilkan pesan bahwa ID sudah digunakan dan meminta pengguna memasukkan ID lain.
-
-Setelah ID berhasil dimasukkan, pengguna dapat mengisi nama siswa, jenjang pendidikan, dan mata pelajaran. Data teks tersebut juga diperiksa agar tidak boleh kosong.
-
-Setelah seluruh informasi berhasil dimasukkan, program membuat data siswa baru dan memasukkannya ke dalam daftar siswa menggunakan ArrayList. Data yang sudah ditambahkan kemudian dapat dilihat melalui menu Tampilkan Data.
-
-Data siswa yang disimpan terdiri dari ID, nama, jenjang, dan mata pelajaran sehingga program dapat mengetahui identitas siswa dan informasi mengenai jenjang dan mata pelajaran yang diikuti.
+Jika pengguna memilih menu Data Siswa, program akan meminta ID Siswa, nama, jenjang, dan mata pelajaran. ID harus berupa angka dan tidak boleh sama dengan ID siswa lain, sedangkan data teks tidak boleh kosong. Setelah semua data valid, program menyimpan data siswa ke dalam ArrayList sehingga dapat ditampilkan melalui menu Tampilkan Data, diubah dimenu update, atau dihapus dimenu hapus data.
 
 **Contoh penambahan data siswa:**
 
 <img width="486" height="164" alt="Screenshot 2026-10-05 212041" src="https://github.com/user-attachments/assets/eeab1cb7-f4ad-4ce6-a7ec-47ffe4f3b742" />
 
-**b. Data Tutor**
-
-Jika pengguna memilih Data Tutor, program akan meminta ID Tutor, Nama, Keahlian, dan No. Telepon.
-
-ID Tutor harus berupa angka dan program akan melakukan pengecekan terlebih dahulu untuk memastikan ID tersebut belum digunakan oleh tutor lain. Jika ID sudah ada, pengguna harus memasukkan ID lain.
-
-Setelah itu, pengguna memasukkan nama tutor, keahlian yang dimiliki, dan nomor telepon. Data tersebut tidak boleh dikosongkan.
-
-Jika semua data sudah berhasil dimasukkan, program membuat object Tutor baru dan menyimpannya ke dalam ArrayList daftarTutor.
-
-Data tersebut dapat digunakan ketika pengguna menampilkan data tutor, melakukan perubahan informasi tutor, atau menghapus data tutor.
-
-**Contoh penambahan data tutor:**
-
-<img width="588" height="170" alt="Screenshot 2026-10-05 212140" src="https://github.com/user-attachments/assets/05432d64-c0d9-400c-82d0-0e6edaa0fac4" />
-
-**c. Data Jadwal**
-
-Jika pengguna memilih Data Jadwal, program akan meminta ID Jadwal, ID Siswa, ID Tutor, Hari, dan Jam.
-
-ID Jadwal harus berupa angka dan tidak boleh sama dengan ID jadwal yang sudah tersimpan. Setelah ID jadwal berhasil dimasukkan, pengguna memasukkan ID siswa dan ID tutor yang berkaitan dengan jadwal tersebut.
-
-Selanjutnya pengguna memasukkan hari dan jam pelaksanaan les. Setelah semua informasi selesai dimasukkan, program membuat object Jadwal baru dan menyimpannya ke dalam ArrayList daftarJadwal.
-
-ID siswa dan ID tutor yang terdapat pada jadwal digunakan untuk mengetahui siswa dan tutor yang berkaitan dengan jadwal tersebut. Ketika jadwal ditampilkan, program mencari nama siswa berdasarkan ID siswa dan nama tutor berdasarkan ID tutor sehingga hasil yang ditampilkan bukan hanya berupa ID.
-
-**Contoh penambahan data jadwal:**
-
-<img width="620" height="175" alt="Screenshot 2026-10-05 212207" src="https://github.com/user-attachments/assets/4ff57fbf-6f14-44a8-a112-8e32218ee19f" />
-
-**2. Tampilkan Data**
-
-Menu Tampilkan Data digunakan untuk melihat data yang sudah tersimpan dalam program. Pengguna dapat memilih data yang ingin ditampilkan, yaitu Data Siswa, Data Tutor, atau Data Jadwal.
-
-a. Jika pengguna memilih Data Siswa, program melakukan perulangan pada daftarSiswa dan menampilkan setiap data siswa yang tersimpan. Informasi yang ditampilkan yaitu ID, nama, jenjang, dan mata pelajaran.
-
 **Contoh tampilkan data siswa:**
 
 <img width="494" height="231" alt="Screenshot 2026-10-05 212340" src="https://github.com/user-attachments/assets/26796f32-94c5-4a72-aa7a-d6ae338e7bd8" />
 
-b. Jika pengguna memilih Data Tutor, program melakukan perulangan pada daftarTutor dan menampilkan informasi setiap tutor. Informasi yang ditampilkan yaitu ID, nama, keahlian, dan nomor telepon.
-
-**Contoh tampilkan data tutor:**
-
-<img width="701" height="233" alt="Screenshot 2026-10-05 212425" src="https://github.com/user-attachments/assets/a4acfbbc-9e08-4644-91c2-92fa12696893" />
-
-c. Jika pengguna memilih Data Jadwal, program melakukan perulangan pada daftarJadwal. Untuk setiap jadwal, program mengambil ID siswa dan ID tutor yang tersimpan pada jadwal tersebut. ID tersebut kemudian digunakan untuk mencari nama siswa dan nama tutor dari daftar masing-masing.
-
-**Contoh tampilkan data jadwal:**
-
-<img width="674" height="250" alt="Screenshot 2026-10-05 212507" src="https://github.com/user-attachments/assets/ae126d51-c976-4da2-8ebb-3e5e39c8a34f" />
-
-d. Setelah nama siswa dan tutor ditemukan, informasi jadwal ditampilkan berupa ID jadwal, nama siswa, nama tutor, hari, dan jam. Dengan cara tersebut, pengguna tidak perlu mengingat ID siswa dan ID tutor untuk mengetahui siapa yang mengikuti dan mengajar pada suatu jadwal.
-
-Pada saat pertama kali program dijalankan, menu Tampilkan Data juga sudah dapat digunakan karena program sudah memiliki data awal berupa satu siswa, satu tutor, dan satu jadwal.
-
-**3. Update Data**
-Menu Update Data digunakan untuk mengubah informasi dari data yang sudah tersimpan.
-
-a. Pengguna terlebih dahulu memilih jenis data yang ingin diubah, yaitu Siswa, Tutor, atau Jadwal. Setelah memilih jenis data, pengguna memasukkan ID dari data yang ingin diubah.
-
-b. Program kemudian melakukan pencarian pada ArrayList untuk menemukan data dengan ID yang sesuai.
-
-c. Jika data siswa ditemukan, pengguna dapat mengubah nama, jenjang, dan mata pelajaran. ID siswa tetap digunakan sebagai identitas untuk mencari data tersebut.
+Jika pengguna memilih Data Siswa, program melakukan perulangan pada daftarSiswa dan menampilkan setiap data siswa yang tersimpan. Informasi yang ditampilkan yaitu ID, nama, jenjang, dan mata pelajaran.
 
 **Contoh update data siswa:**
 
@@ -120,7 +54,23 @@ Pengguna memasukkan ID siswa 1 dan memanfaatkan fitur System Enter (cukup meneka
 
 <img width="640" height="227" alt="Screenshot 2026-10-05 213115" src="https://github.com/user-attachments/assets/72bdc402-e4ec-4fe3-8c8a-52f42b91f200" />
 
-d. Jika data tutor ditemukan, pengguna dapat mengubah nama, keahlian, dan nomor telepon.
+**Contoh hapus data siswa:**
+
+<img width="677" height="328" alt="Screenshot 2026-10-05 214151" src="https://github.com/user-attachments/assets/f17e426d-67c2-46d5-8101-73aa12e9834b" />
+
+**b. Data Tutor**
+
+**Contoh penambahan data tutor:**
+
+<img width="588" height="170" alt="Screenshot 2026-10-05 212140" src="https://github.com/user-attachments/assets/05432d64-c0d9-400c-82d0-0e6edaa0fac4" />
+
+Jika pengguna memilih menu Data Tutor, program akan meminta ID Tutor, nama, keahlian, dan nomor telepon. ID harus berupa angka dan tidak boleh sama dengan ID tutor lain, sedangkan data lainnya tidak boleh kosong. Setelah semua data valid, program membuat objek Tutor dan menyimpannya ke dalam ArrayList daftarTutor agar dapat ditampilkan, diubah, atau dihapus melalui menu yang tersedia.
+
+**Contoh tampilkan data tutor:**
+
+<img width="701" height="233" alt="Screenshot 2026-10-05 212425" src="https://github.com/user-attachments/assets/a4acfbbc-9e08-4644-91c2-92fa12696893" />
+
+Jika pengguna memilih Data Tutor, program melakukan perulangan pada daftarTutor dan menampilkan informasi setiap tutor. Informasi yang ditampilkan yaitu ID, nama, keahlian, dan nomor telepon.
 
 **Contoh update data tutor:**
 
@@ -132,7 +82,23 @@ Pengguna memasukkan ID tutor 2, lalu memperbarui nama menjadi "Imsa" dan nomor t
 
 <img width="468" height="231" alt="Screenshot 2026-10-05 213328" src="https://github.com/user-attachments/assets/3a74605f-4511-44ee-b5bd-bb251170e5ee" />
 
-e. Jika data jadwal ditemukan, pengguna dapat mengubah ID siswa, ID tutor, hari, dan jam.
+**Contoh hapus data tutor:**
+
+<img width="587" height="326" alt="Screenshot 2026-10-05 214112" src="https://github.com/user-attachments/assets/e3c355df-8c54-49c8-8daa-10abf9ba25d6" />
+
+**c. Data Jadwal**
+
+**Contoh penambahan data jadwal:**
+
+<img width="620" height="175" alt="Screenshot 2026-10-05 212207" src="https://github.com/user-attachments/assets/4ff57fbf-6f14-44a8-a112-8e32218ee19f" />
+
+Jika pengguna memilih menu Data Jadwal, program akan meminta ID Jadwal, ID Siswa, ID Tutor, hari, dan jam pelaksanaan les. ID Jadwal harus berupa angka dan tidak boleh sama dengan ID yang sudah tersimpan. Setelah semua informasi dimasukkan, program membuat objek Jadwal dan menyimpannya ke dalam ArrayList daftarJadwal. Saat jadwal ditampilkan, program mencari nama siswa dan tutor berdasarkan ID.
+
+**Contoh tampilkan data jadwal:**
+
+<img width="674" height="250" alt="Screenshot 2026-10-05 212507" src="https://github.com/user-attachments/assets/ae126d51-c976-4da2-8ebb-3e5e39c8a34f" />
+
+Jika pengguna memilih Data Jadwal, program melakukan perulangan pada daftarJadwal. Untuk setiap jadwal, program mengambil ID siswa dan ID tutor yang tersimpan pada jadwal tersebut. ID tersebut kemudian digunakan untuk mencari nama siswa dan nama tutor dari daftar masing-masing.
 
 **Contoh update data jadwal:**
 
@@ -144,41 +110,17 @@ Pengguna memasukkan ID jadwal 2, lalu memanfaatkan fitur System Enter (cukup men
 
 <img width="541" height="250" alt="Screenshot 2026-10-05 213508" src="https://github.com/user-attachments/assets/a260c5b8-020e-4ec9-8236-27c6aa99750e" />
 
-Pada proses perubahan tersebut, program menggunakan setter yang tersedia pada masing-masing class. Jadi, informasi yang baru dimasukkan pengguna akan diberikan melalui method yang digunakan untuk mengubah data. Jika ID yang dimasukkan tidak ditemukan, program tidak melakukan perubahan dan menampilkan pesan bahwa data tidak ditemukan.
-
-**4. Hapus Data**
-Menu Hapus Data digunakan untuk menghapus data yang sudah tidak diperlukan.
-
-a. Pengguna terlebih dahulu memilih jenis data yang ingin dihapus, yaitu Siswa, Tutor, atau Jadwal. Setelah itu, pengguna memasukkan ID dari data yang ingin dihapus.
-
-**Contoh hapus data siswa:**
-
-<img width="677" height="328" alt="Screenshot 2026-10-05 214151" src="https://github.com/user-attachments/assets/f17e426d-67c2-46d5-8101-73aa12e9834b" />
-
-**Contoh hapus data tutor:**
-
-<img width="587" height="326" alt="Screenshot 2026-10-05 214112" src="https://github.com/user-attachments/assets/e3c355df-8c54-49c8-8daa-10abf9ba25d6" />
-
 **Contoh hapus data jadwal:**
 
 <img width="569" height="332" alt="Screenshot 2026-10-05 213846" src="https://github.com/user-attachments/assets/6106f304-884a-4a50-af08-6e81fe53a1b7" />
 
-b. Program akan mencari ID tersebut pada ArrayList yang sesuai. Jika ID ditemukan, data tersebut akan dihapus dari daftar. Misalnya, jika pengguna memilih data siswa dan memasukkan ID siswa tertentu, program akan mencari siswa dengan ID tersebut pada daftarSiswa. Jika ditemukan, data siswa tersebut akan dihapus. Hal yang sama dilakukan untuk data tutor dan jadwal. Program akan mencari ID yang sesuai pada daftar masing-masing sebelum melakukan penghapusan.
+**Keluar**
 
-c. Jika data berhasil ditemukan dan dihapus, program menampilkan pesan bahwa data berhasil dihapus. Jika ID yang dimasukkan tidak sesuai dengan data yang tersedia, tidak ada data yang dihapus.
-
-**5. Keluar**
-Menu Keluar digunakan untuk menghentikan program.
-
-a. Ketika pengguna memilih menu nomor 5, nilai boolean berjalan pada MainApp diubah menjadi false. Kondisi tersebut membuat perulangan while berhenti sehingga menu utama tidak lagi ditampilkan.
+Ketika pengguna memilih menu nomor 5, nilai boolean berjalan pada MainApp diubah menjadi false. Kondisi tersebut membuat perulangan while berhenti sehingga menu utama tidak lagi ditampilkan.
 
 **Contoh keluar program:**
 
 <img width="506" height="131" alt="Screenshot 2026-10-05 214305" src="https://github.com/user-attachments/assets/af41c90e-409d-4ff2-a5c5-a0799e4079db" />
-
-b. Setelah perulangan berhenti, Scanner ditutup dan program selesai dijalankan.
-
-Dengan menggunakan perulangan tersebut, pengguna dapat melakukan beberapa proses secara berurutan, misalnya menambahkan data kemudian langsung menampilkan data, melakukan update, menghapus data, dan kembali ke menu utama tanpa harus menjalankan program dari awal.
 
 ## Validasi Input
 
@@ -221,32 +163,11 @@ b. Setter digunakan ketika terdapat perubahan data. Contohnya, ketika pengguna m
 
 **Encapsulation getter dan setter pada class**
 
-a. Encapsulation juga diterapkan pada class Siswa. Atribut jenjang dan mataPelajaran dibuat private dan masing-masing memiliki getter dan setter. Dengan demikian, program dapat mengambil data menggunakan getJenjang() dan getMataPelajaran(), serta mengubahnya menggunakan setJenjang() dan setMataPelajaran().
+Encapsulation dapat dilihat pada class Siswa. Atribut jenjang dan mataPelajaran dibuat private dan masing-masing memiliki getter dan setter. Dengan demikian, program dapat mengambil data menggunakan getJenjang() dan getMataPelajaran(), serta mengubahnya menggunakan setJenjang() dan setMataPelajaran().
 
 **Penerapan encapsulation pada siswa:**
 
 <img width="582" height="370" alt="Screenshot 2026-10-05 215808" src="https://github.com/user-attachments/assets/52df3362-56f0-42a8-a2f8-070016c1fb4c" />
-
-b. Pada class Tutor, atribut keahlian dan noTelepon juga dibuat private. Program menyediakan getKeahlian(), setKeahlian(), getNoTelepon(), dan setNoTelepon() untuk mengambil dan mengubah data tersebut.
-
-**Penerapan encapsulation pada tutor:**
-
-<img width="604" height="302" alt="Screenshot 2026-10-05 215730" src="https://github.com/user-attachments/assets/9f2311e8-903a-41b9-a99a-06aa3c48fb68" />
-<img width="467" height="149" alt="image" src="https://github.com/user-attachments/assets/e0f577ad-c3fa-4c91-b237-09f8c97e2e27" />
-
-c. Pada class Jadwal, atribut idJadwal, idSiswa, idTutor, hari, dan jam dibuat private. Masing-masing atribut memiliki getter dan setter yang digunakan ketika data dibutuhkan atau diperbarui.
-
-<img width="607" height="260" alt="image" src="https://github.com/user-attachments/assets/129def96-ccc2-432b-8c2c-4c16a27883ad" />
-
-d. Penerapan encapsulation juga dapat dilihat pada proses Update Data. Program tidak mengubah atribut secara langsung, tetapi menggunakan setter seperti setNama(), setJenjang(), setMataPelajaran(), setKeahlian(), setNoTelepon(), setIdSiswa(), setIdTutor(), setHari(), dan setJam().
-
-<img width="580" height="239" alt="Screenshot 2026-10-05 220205" src="https://github.com/user-attachments/assets/d3eb0357-59c4-491a-b411-9929d8f04b8f" />
-
-<img width="488" height="170" alt="Screenshot 2026-10-05 230604" src="https://github.com/user-attachments/assets/6a3df83f-0f14-4072-b88c-3806e5e8120c" />
-
-<img width="548" height="329" alt="Screenshot 2026-10-05 230628" src="https://github.com/user-attachments/assets/a832cd45-284f-42ea-842d-c8e987d0b178" />
-
-Dengan cara tersebut, data yang dimiliki oleh setiap object dikelola melalui method yang sudah disediakan pada class masing-masing. Hal ini juga membuat proses pengambilan dan perubahan data menjadi lebih teratur.
 
 ## Penerapan Inheritance
 Inheritance diterapkan dengan menggunakan class Pengguna sebagai superclass. Class Pengguna digunakan untuk menyimpan data yang sama-sama dimiliki oleh siswa dan tutor, yaitu ID dan nama.
@@ -272,41 +193,33 @@ c. Penerapan inheritance membuat data yang sama tidak perlu dibuat berulang pada
 ## MVC
 Program menerapkan pemisahan package untuk mengatur bagian-bagian program berdasarkan fungsinya.
 
+## Screenshoot Struktur Folder:
+
+<img width="275" height="392" alt="image" src="https://github.com/user-attachments/assets/64b8f6b8-1fd9-4fd8-aa6f-6df48cc3e6d3" />
+
 **a. Package Model**
 
 Package model berisi class Pengguna, Siswa, Tutor, dan Jadwal yang digunakan untuk membentuk data dalam program. Pengguna digunakan sebagai dasar data yang dimiliki oleh Siswa dan Tutor, Siswa digunakan untuk menyimpan data siswa, Tutor untuk menyimpan data tutor, dan Jadwal untuk menyimpan data jadwal les. Pembagian package tersebut membuat bagian untuk menjalankan program, mengelola proses, dan membentuk data menjadi lebih teratur.
-
-**Package Model:**
-
-<img width="248" height="83" alt="image" src="https://github.com/user-attachments/assets/b2555063-6fe2-47ea-907f-f7657476b2bc" />
 
 **b. Package Controller**
 
 Package Controller berisi class LesPrivatController dan LayananLesPrivat. LesPrivatController digunakan sebagai penghubung antara MainApp dengan LayananLesPrivat, sedangkan LayananLesPrivat berisi proses utama pengelolaan data seperti menambah, menampilkan, mengubah, dan menghapus data, serta melakukan pencarian nama siswa dan tutor dan validasi input.
 
-**Package Controller:**
-
-<img width="241" height="41" alt="image" src="https://github.com/user-attachments/assets/7535b5b7-e832-4ea0-8779-e07defd6346d" />
-
 **c. Package View**
 
 Package view berisi LesPrivatView yang bertanggung jawab penuh atas interaksi konsol dan penerimaan input. Alur program berjalan melalui perulangan while di menu utama yang memproses pilihan pengguna lewat switch-case dan meneruskannya ke controller.
 
-**Package View:**
+**d. Package Main**
 
-<img width="244" height="31" alt="image" src="https://github.com/user-attachments/assets/de47e139-f0e3-43af-ab62-51c388ae4cc7" />
+Package Main berisi class MainApp yang bertindak sebagai titik awal (entry point) jalannya program. Class ini bertugas untuk menginisialisasi dan memanggil controller utama agar aplikasi dapat langsung dieksekusi saat pertama kali dijalankan.
 
-## Screenshoot Struktur Folder:
+**e. Package Config**
 
-<img width="275" height="392" alt="image" src="https://github.com/user-attachments/assets/64b8f6b8-1fd9-4fd8-aa6f-6df48cc3e6d3" />
+Package Config berisi class Koneksi yang berfungsi untuk mengatur dan mengelola koneksi ke database MySQL menggunakan JDBC Driver. Package ini memastikan jembatan komunikasi antara program Java dan database db_lesprivat dapat terhubung dengan stabil
 
-Setelah MVC dibuat seperti ditampilan screenshoot tiap package MVC di atas, terdapat pula package yang melengkapi program ini yaitu:
+**f. Package DAO**
 
-**Package Model**
-
-**Package Config**
-
-**Package DAO**
+Package DAO (Data Access Object) berisi class SiswaDAO, TutorDAO, dan JadwalDAO yang bertanggung jawab penuh atas pengolahan data langsung ke database. Package ini mengumpulkan seluruh query SQL menggunakan PreparedStatement untuk menjalankan proses CRUD (Create, Read, Update, Delete) sehingga terpisah bersih dari kode tampilan maupun logika alur program
 
 ## Abstraction
 
@@ -322,7 +235,7 @@ Abstraction diterapkan melalui pembuatan abstract class dan abstract method pada
 
 ## Polymorphism
 
-Polymorphism pada program ini diterapkan dalam dua bentuk utama, yaitu Overriding dan Overloading. Overriding diimplementasikan melalui method tampilkanInfo() dan getPeran(). Pada abstract class Pengguna, method tampilkanInfo() dideklarasikan sebagai abstract, kemudian dioverride ulang di dalam class Siswa untuk menampilkan informasi ID, nama, jenjang, dan mata pelajaran, serta dioverride di class Tutor untuk menampilkan ID, nama, keahlian, dan nomor telepon sesuai atribut masing-masing subclass. Sementara itu, overloading diterapkan pada class Jadwal melalui dua bentuk method tampilkanInfo() dengan parameter yang berbeda, yakni tampilkanInfo() tanpa parameter dan tampilkanInfo(String namaSiswa, String namaTutor) dengan parameter untuk menerjemahkan ID menjadi nama lengkap. Overloading juga diterapkan pada class LesPrivatView melalui variasi method inputAngkaWajib()
+Polymorphism pada program ini diterapkan dalam dua bentuk utama, yaitu Overriding dan Overloading. Overriding diimplementasikan melalui method tampilkanInfo() dan getPeran(). Pada abstract class Pengguna, method tampilkanInfo() dideklarasikan sebagai abstract, kemudian dioverride ulang di dalam class Siswa untuk menampilkan informasi ID, nama, jenjang, dan mata pelajaran, serta dioverride di class Tutor untuk menampilkan ID, nama, keahlian, dan nomor telepon sesuai atribut masing-masing subclass. Sementara itu, overloading diterapkan pada class Jadwal melalui dua bentuk method tampilkanInfo() dengan parameter yang berbeda, yakni tampilkanInfo() tanpa parameter dan tampilkanInfo(String namaSiswa, String namaTutor) dengan parameter untuk menerjemahkan ID menjadi nama lengkap.
 
 **Overriding diimplementasikan melalui method tampilkanInfo() dan getPeran(). Pada abstract class Pengguna, method tampilkanInfo() dideklarasikan sebagai abstract:**
 
@@ -332,21 +245,11 @@ Polymorphism pada program ini diterapkan dalam dua bentuk utama, yaitu Overridin
 
 <img width="373" height="166" alt="image" src="https://github.com/user-attachments/assets/16426901-ae43-4da1-a0cb-da5f3ef32dfb" />
 
-**Overriding pada class tutor:**
-
-<img width="352" height="167" alt="image" src="https://github.com/user-attachments/assets/35a96147-f4d5-4029-b403-54849a3c9084" />
-
 **Overloading pada class jadwal:**
 
 <img width="468" height="220" alt="image" src="https://github.com/user-attachments/assets/b7ac8181-e045-4d36-83ff-5248c38e46b3" />
 
-**Overloading pada class LesPrivatView melalui variasi method inputAngkaWajib():**
-
-<img width="477" height="14" alt="image" src="https://github.com/user-attachments/assets/a556d478-c2cd-4b59-b725-c829d6b02607" />
-
-**Terdapat method inputAngkaWajib() di controller:**
-
-<img width="458" height="30" alt="image" src="https://github.com/user-attachments/assets/6150c0d2-e834-46e4-875d-7b8aa4cc8419" />
+Penerapan method overloading pada class Jadwal terlihat dari penggunaan dua method bernama tampilkanInfo dengan perbedaan pada parameternya. Versi pertama dibuat tanpa parameter untuk menampilkan informasi dasar berupa ID, sedangkan versi kedua menggunakan dua parameter String (namaSiswa dan namaTutor) untuk menampilkan nama secara langsung agar lebih informatif
 
 ## Interface
 Sistem ini menerapkan Interface pada dua bagian utama. Pertama, interface PengelolaData pada package Controller yang mendefinisikan kontrak standar operasi CRUD (tambahData, tampilkanData, updateData, dan hapusData) yang diimplementasikan penuh pada LesPrivatController. Kedua, interface CetakInfo pada package model yang mendeklarasikan kontrak method tampilkanInfo() dan diimplementasikan oleh class Pengguna (serta diturunkan ke Siswa dan Tutor) serta diimplementasikan langsung oleh class Jadwal.
@@ -355,16 +258,53 @@ Sistem ini menerapkan Interface pada dua bagian utama. Pertama, interface Pengel
 
 <img width="325" height="46" alt="image" src="https://github.com/user-attachments/assets/d8d375a7-1596-4f8a-a02a-913376238d9d" />
 
-**Interface pada class jadwal:**
-
-<img width="272" height="89" alt="image" src="https://github.com/user-attachments/assets/682e0477-ff84-4eda-bea2-c4434fb4c14c" />
-
-**Interface PengelolaData pada class CetakInfo:**
-
-<img width="194" height="70" alt="image" src="https://github.com/user-attachments/assets/12f2af38-b700-4954-963a-08e3a5e2c8f7" />
-
 ## Penerapan JDBC
 
+**Buat Database dan tabel data**
+
+<img width="170" height="181" alt="image" src="https://github.com/user-attachments/assets/b56897e6-e592-443e-a15e-d3e8e8b5ff51" />
+
+<img width="570" height="208" alt="image" src="https://github.com/user-attachments/assets/b48dd736-14fa-46a6-b5b2-01b2c336a481" /> <img width="603" height="211" alt="image" src="https://github.com/user-attachments/assets/749629c8-e98e-483e-90d0-c74eb4374ae2" /> <img width="681" height="214" alt="image" src="https://github.com/user-attachments/assets/d65784fa-f9d4-4b05-a5fb-3bb9c27d3884" />
+
+Implementasi JDBC dan DAO pada program ini dilakukan dengan membuat database baru yaitu lesprivat_db kemudian membuat struktur tabel database MySQL. Tiga tabel yang dibuat yaitu tabel siswa, tutor, dan jadwal.
+
+siswa: Menyimpan data diri siswa (ID, nama, jenjang, mata pelajaran).
+
+tutor: Menyimpan data diri tutor (ID, nama, keahlian, nomor telepon).
+
+jadwal: Menyimpan data jadwal les yang menghubungkan id_siswa dan id_tutor sebagai foreign key, beserta hari dan jam les.
+
+**Penambahan driver pada kode program**
+
+<img width="614" height="272" alt="image" src="https://github.com/user-attachments/assets/ef2390a5-8dba-4ab4-b10c-9bbe7d8c2aa4" />
+
+Masukkan file MySQL JDBC Driver (MySQL Connector/J) ke dalam bagian Libraries project Java di NetBeans agar aplikasi dapat mengenali dan berkomunikasi dengan server MySQ.
+
+**Membuat Konfigurasi Koneksi**
+
+<img width="554" height="297" alt="image" src="https://github.com/user-attachments/assets/afbcee4f-3f1d-4f0d-8639-09b3dd281e3a" />
+
+Membuat class Koneksi di dalam package config. Class ini bertugas untuk membuka koneksi ke database MySQL menggunakan DriverManager dengan parameter URL, username (root), dan password:
+
+**Membuat Package DAO**
+
+<img width="605" height="385" alt="image" src="https://github.com/user-attachments/assets/c5735c1c-89c1-4b00-ba49-336f9b2f584f" />
+
+Pisahkan logika akses data ke dalam package dao yang terdiri dari SiswaDAO, TutorDAO, dan JadwalDAO. Setiap kelas DAO mengimplementasikan operasi CRUD (Create, Read, Update, Delete) dengan memanfaatkan PreparedStatement untuk mengeksekusi query SQL secara aman dan terhindar dari SQL Injection.
+
+a. Read (getAll): Mengambil data dari database menggunakan ResultSet dan mengubahnya kembali menjadi objek Java ke dalam ArrayList.
+
+b. Create (insert): Menyimpan data baru menggunakan query INSERT INTO dengan parameter ?.
+
+c. Update (update): Mengubah data yang sudah ada berdasarkan ID menggunakan query UPDATE.
+
+d. Delete (delete): Menghapus data dari tabel berdasarkan ID menggunakan query DELETE.
+
+**Integrasi ke Controller**
+
+<img width="230" height="152" alt="image" src="https://github.com/user-attachments/assets/659cc5d7-32b7-4686-88b1-341b1e2195dc" />
+
+Hubungkan kelas-kelas DAO ke dalam LesPrivatController. Controller tidak lagi menyimpan data sementara di dalam memori ArrayList lokal, melainkan memanggil method dari SiswaDAO, TutorDAO, dan JadwalDAO secara langsung setiap kali pengguna melakukan operasi tambah, tampil, ubah, atau hapus data melalui antarmuka konsol (LesPrivatView)
 
 ## Struktur Program
 
@@ -379,3 +319,7 @@ Struktur program dibagi menjadi beberapa package dan class sesuai dengan fungsin
 4. Pengguna bertindak sebagai abstract class (implements CetakInfo) yang menjadi superclass bagi Siswa dan Tutor.
 
 5. Siswa, Tutor, dan Jadwal digunakan sebagai class entity pembentuk data utama, di mana Jadwal juga ikut mengimplementasikan interface CetakInfo.
+
+6. DatabaseConnection (di package config) digunakan untuk mengelola koneksi utama antara aplikasi Java dan database MySQL.
+
+7. Kelas-kelas DAO (SiswaDAO, TutorDAO, JadwalDAO) digunakan untuk mengelola proses CRUD dan interaksi data langsung ke database menggunakan PreparedStatement.
