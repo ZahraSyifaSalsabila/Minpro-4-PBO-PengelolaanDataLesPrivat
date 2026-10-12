@@ -1,5 +1,5 @@
-## Sistem Pengelolaan Data Les Privat
-### Deskripsi Singkat Program
+## Sistem Pengelolaan Data Les Privat👩‍🏫
+### Deskripsi Singkat Program📜
 
 ---
 
@@ -9,7 +9,7 @@ Program ini menyediakan lima menu utama yaitu Tambah Data, Tampilkan Data, Updat
 
 ---
 
-### Penjelasan Alur Program
+### Penjelasan Alur Program⏳
 
 ---
 Ketika program dijalankan melalui class MainApp, program akan menyiapkan Scanner untuk menerima input dari pengguna. Setelah itu, program membuat object yang digunakan untuk mengelola data les privat dan menampilkan menu utama.
@@ -22,7 +22,7 @@ Jika pengguna memilih menu nomor 1, program menjalankan proses Tambah Data. Jika
 
 ---
 
-### **a. Data Siswa**
+### **a. Data Siswa**👧
 
 ---
 
@@ -54,7 +54,7 @@ Pengguna memasukkan ID siswa 1 dan memanfaatkan fitur System Enter (cukup meneka
 
 ---
 
-### **b. Data Tutor**
+### **b. Data Tutor**🧑‍🏫
 
 ---
 
@@ -86,7 +86,7 @@ Pengguna memasukkan ID tutor 2, lalu memperbarui nama menjadi "Imsa" dan nomor t
 
 ---
 
-### **c. Data Jadwal**
+### **c. Data Jadwal**✍️
 
 ---
 
@@ -118,7 +118,7 @@ Pengguna memasukkan ID jadwal 2, lalu memanfaatkan fitur System Enter (cukup men
 
 ---
 
-### **Keluar**
+### **Keluar**🏃‍♀️
 
 ---
 
@@ -130,7 +130,7 @@ Ketika pengguna memilih menu nomor 5, nilai boolean berjalan pada MainApp diubah
 
 ---
 
-### Validasi Input
+### Validasi Input🤖
 
 ---
 
@@ -162,7 +162,7 @@ Validasi juga digunakan pada proses input menu. Jika pengguna memasukkan pilihan
 
 ---
 
-### Penerapan Encapsulation
+### Penerapan Encapsulation🔑
 
 ---
 
@@ -184,7 +184,7 @@ Encapsulation dapat dilihat pada class Siswa. Atribut jenjang dan mataPelajaran 
 
 ---
 
-### Penerapan Inheritance
+### Penerapan Inheritance🤰
 
 ---
 
@@ -208,13 +208,13 @@ Siswa memiliki data tambahan berupa jenjang dan mata pelajaran, sedangkan Tutor 
 
 ---
 
-### MVC
+### MVC📦
 
 ---
 
 Program menerapkan pemisahan package untuk mengatur bagian-bagian program berdasarkan fungsinya.
 
-### Screenshoot Struktur Folder:
+### Screenshoot Struktur Folder:📸
 
 <img width="275" height="392" alt="image" src="https://github.com/user-attachments/assets/64b8f6b8-1fd9-4fd8-aa6f-6df48cc3e6d3" />
 
@@ -244,7 +244,7 @@ Package DAO (Data Access Object) berisi class SiswaDAO, TutorDAO, dan JadwalDAO 
 
 ---
 
-### Abstraction
+### Abstraction🖨️
 
 ---
 
@@ -260,7 +260,7 @@ Abstraction diterapkan melalui pembuatan abstract class dan abstract method pada
 
 ---
 
-### Polymorphism
+### Polymorphism⚙️
 
 ---
 
@@ -282,7 +282,7 @@ Penerapan method overloading pada class Jadwal terlihat dari penggunaan dua meth
 
 ---
 
-### Interface
+### Interface📝
 
 ---
 
@@ -294,7 +294,7 @@ Sistem ini menerapkan Interface pada dua bagian utama. Pertama, interface Pengel
 
 ---
 
-### Penerapan JDBC
+### Penerapan JDBC📁
 
 ---
 
@@ -346,7 +346,7 @@ Hubungkan kelas-kelas DAO ke dalam LesPrivatController. Controller tidak lagi me
 
 ---
 
-### Struktur Program
+### Struktur Program💡
 
 ---
 
