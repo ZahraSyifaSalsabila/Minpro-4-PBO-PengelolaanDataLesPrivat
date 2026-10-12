@@ -302,7 +302,7 @@ Sistem ini menerapkan Interface pada dua bagian utama. Pertama, interface Pengel
 
 <img width="170" height="181" alt="image" src="https://github.com/user-attachments/assets/b56897e6-e592-443e-a15e-d3e8e8b5ff51" />
 
-<img width="570" height="208" alt="image" src="https://github.com/user-attachments/assets/b48dd736-14fa-46a6-b5b2-01b2c336a481" /> <img width="603" height="211" alt="image" src="https://github.com/user-attachments/assets/749629c8-e98e-483e-90d0-c74eb4374ae2" /> <img width="681" height="214" alt="image" src="https://github.com/user-attachments/assets/d65784fa-f9d4-4b05-a5fb-3bb9c27d3884" />
+<img width="500" height="208" alt="image" src="https://github.com/user-attachments/assets/b48dd736-14fa-46a6-b5b2-01b2c336a481" /> <img width="500" height="211" alt="image" src="https://github.com/user-attachments/assets/749629c8-e98e-483e-90d0-c74eb4374ae2" /> <img width="500" height="214" alt="image" src="https://github.com/user-attachments/assets/d65784fa-f9d4-4b05-a5fb-3bb9c27d3884" />
 
 Implementasi JDBC dan DAO pada program ini dilakukan dengan membuat database baru yaitu lesprivat_db kemudian membuat struktur tabel database MySQL. Tiga tabel yang dibuat yaitu tabel siswa, tutor, dan jadwal.
 
@@ -314,7 +314,7 @@ jadwal: Menyimpan data jadwal les yang menghubungkan id_siswa dan id_tutor sebag
 
 **Penambahan driver pada kode program**
 
-<img width="614" height="272" alt="image" src="https://github.com/user-attachments/assets/ef2390a5-8dba-4ab4-b10c-9bbe7d8c2aa4" />
+<img width="500" height="272" alt="image" src="https://github.com/user-attachments/assets/ef2390a5-8dba-4ab4-b10c-9bbe7d8c2aa4" />
 
 Masukkan file MySQL JDBC Driver (MySQL Connector/J) ke dalam bagian Libraries project Java di NetBeans agar aplikasi dapat mengenali dan berkomunikasi dengan server MySQ.
 
@@ -326,7 +326,7 @@ Membuat class Koneksi di dalam package config. Class ini bertugas untuk membuka 
 
 **Membuat Package DAO**
 
-<img width="605" height="385" alt="image" src="https://github.com/user-attachments/assets/c5735c1c-89c1-4b00-ba49-336f9b2f584f" />
+<img width="500" height="305" alt="image" src="https://github.com/user-attachments/assets/c5735c1c-89c1-4b00-ba49-336f9b2f584f" />
 
 Pisahkan logika akses data ke dalam package dao yang terdiri dari SiswaDAO, TutorDAO, dan JadwalDAO. Setiap kelas DAO mengimplementasikan operasi CRUD (Create, Read, Update, Delete) dengan memanfaatkan PreparedStatement untuk mengeksekusi query SQL secara aman dan terhindar dari SQL Injection.
 
