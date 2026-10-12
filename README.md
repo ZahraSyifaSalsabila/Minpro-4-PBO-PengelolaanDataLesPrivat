@@ -15,11 +15,11 @@ Jika pengguna memilih menu nomor 1, program menjalankan proses Tambah Data. Jika
 
 **a. Data Siswa**
 
-Jika pengguna memilih menu Data Siswa, program akan meminta ID Siswa, nama, jenjang, dan mata pelajaran. ID harus berupa angka dan tidak boleh sama dengan ID siswa lain, sedangkan data teks tidak boleh kosong. Setelah semua data valid, program menyimpan data siswa ke dalam ArrayList sehingga dapat ditampilkan melalui menu Tampilkan Data, diubah dimenu update, atau dihapus dimenu hapus data.
-
 **Contoh penambahan data siswa:**
 
 <img width="486" height="164" alt="Screenshot 2026-10-05 212041" src="https://github.com/user-attachments/assets/eeab1cb7-f4ad-4ce6-a7ec-47ffe4f3b742" />
+
+Jika pengguna memilih menu Data Siswa, program akan meminta ID Siswa, nama, jenjang, dan mata pelajaran. ID harus berupa angka dan tidak boleh sama dengan ID siswa lain, sedangkan data teks tidak boleh kosong. Setelah semua data valid, program menyimpan data siswa ke dalam ArrayList sehingga dapat ditampilkan melalui menu Tampilkan Data, diubah dimenu update, atau dihapus dimenu hapus data.
 
 **Contoh tampilkan data siswa:**
 
@@ -111,25 +111,25 @@ Program memiliki validasi input untuk membantu memastikan data yang dimasukkan s
 
 a. Untuk input berupa angka, seperti pilihan menu dan ID, program menggunakan method inputAngka(). Method tersebut akan memeriksa apakah input yang diberikan merupakan angka. Jika pengguna memasukkan huruf atau input selain angka, program tidak langsung melanjutkan proses, tetapi meminta pengguna memasukkan angka kembali.
 
-Contoh validasi input berupa angka:
+**Contoh validasi input berupa angka:**
 
 <img width="293" height="81" alt="Screenshot 2026-10-05 214551" src="https://github.com/user-attachments/assets/037a3976-b83a-4ded-a64b-8d707840a179" />
 
 b. Untuk input berupa teks, program menggunakan method inputTeks(). Method ini digunakan untuk memeriksa apakah input yang diberikan kosong atau hanya berisi spasi. Jika input kosong, pengguna akan diminta memasukkan data kembali sampai memberikan teks yang sesuai.
 
-Contoh validasi input berupa teks:
+**Contoh validasi input berupa teks:**
 
 <img width="275" height="88" alt="Screenshot 2026-10-05 214731" src="https://github.com/user-attachments/assets/33bba9a9-b9a4-468d-a5b3-25f876fe8feb" />
 
 c. Program juga melakukan validasi terhadap ID siswa, tutor, dan jadwal. Setiap ID diperiksa sebelum data baru ditambahkan. Pengecekan tersebut dilakukan menggunakan method isIdSiswaAda(), isIdTutorAda(), dan isIdJadwalAda(). Jika ID yang dimasukkan sudah digunakan, program akan menampilkan pesan bahwa ID tersebut sudah digunakan dan pengguna harus memasukkan ID lain. Dengan begitu, data yang ditambahkan tidak menggunakan ID yang sama dengan data sebelumnya.
 
-Contoh validasi terhadap ID yang sudah ada:
+**Contoh validasi terhadap ID yang sudah ada:**
 
 <img width="234" height="75" alt="Screenshot 2026-10-05 214840" src="https://github.com/user-attachments/assets/ee805345-17db-4c29-b94a-ac01040fcfa3" /> <img width="202" height="77" alt="Screenshot 2026-10-05 214916" src="https://github.com/user-attachments/assets/4eefa053-d788-4db6-a379-f0f7998501af" /> <img width="196" height="80" alt="Screenshot 2026-10-05 214942" src="https://github.com/user-attachments/assets/8310723c-b1c9-4cdd-8965-7d58c29d9423" />
 
 d. Validasi juga digunakan pada proses input menu. Jika pengguna memasukkan pilihan selain pilihan yang tersedia, program akan menampilkan pesan bahwa pilihan tidak ada sehingga pengguna dapat memilih kembali menu yang sesuai. Validasi tersebut digunakan pada proses tambah data, update data, dan bagian lain yang membutuhkan input dari pengguna. Dengan adanya validasi, kesalahan input dapat dikurangi dan program dapat tetap berjalan ketika pengguna memasukkan data yang tidak sesuai.
 
-Contoh validasi proses input menu:
+**Contoh validasi proses input menu:**
 
 <img width="260" height="77" alt="Screenshot 2026-10-05 215104" src="https://github.com/user-attachments/assets/f7ccacd8-e549-43cd-be1d-c38ac958c027" />
 
