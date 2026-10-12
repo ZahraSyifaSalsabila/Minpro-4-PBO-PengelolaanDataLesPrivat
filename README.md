@@ -109,29 +109,29 @@ Ketika pengguna memilih menu nomor 5, nilai boolean berjalan pada MainApp diubah
 
 Program memiliki validasi input untuk membantu memastikan data yang dimasukkan sesuai dengan kebutuhan program.
 
-a. Untuk input berupa angka, seperti pilihan menu dan ID, program menggunakan method inputAngka(). Method tersebut akan memeriksa apakah input yang diberikan merupakan angka. Jika pengguna memasukkan huruf atau input selain angka, program tidak langsung melanjutkan proses, tetapi meminta pengguna memasukkan angka kembali.
-
 **Contoh validasi input berupa angka:**
 
 <img width="293" height="81" alt="Screenshot 2026-10-05 214551" src="https://github.com/user-attachments/assets/037a3976-b83a-4ded-a64b-8d707840a179" />
 
-b. Untuk input berupa teks, program menggunakan method inputTeks(). Method ini digunakan untuk memeriksa apakah input yang diberikan kosong atau hanya berisi spasi. Jika input kosong, pengguna akan diminta memasukkan data kembali sampai memberikan teks yang sesuai.
+Untuk input berupa angka, seperti pilihan menu dan ID, program menggunakan method inputAngka(). Method tersebut akan memeriksa apakah input yang diberikan merupakan angka. Jika pengguna memasukkan huruf atau input selain angka, program tidak langsung melanjutkan proses, tetapi meminta pengguna memasukkan angka kembali
 
 **Contoh validasi input berupa teks:**
 
 <img width="275" height="88" alt="Screenshot 2026-10-05 214731" src="https://github.com/user-attachments/assets/33bba9a9-b9a4-468d-a5b3-25f876fe8feb" />
 
-c. Program juga melakukan validasi terhadap ID siswa, tutor, dan jadwal. Setiap ID diperiksa sebelum data baru ditambahkan. Pengecekan tersebut dilakukan menggunakan method isIdSiswaAda(), isIdTutorAda(), dan isIdJadwalAda(). Jika ID yang dimasukkan sudah digunakan, program akan menampilkan pesan bahwa ID tersebut sudah digunakan dan pengguna harus memasukkan ID lain. Dengan begitu, data yang ditambahkan tidak menggunakan ID yang sama dengan data sebelumnya.
+Untuk input berupa teks, program menggunakan method inputTeks(). Method ini digunakan untuk memeriksa apakah input yang diberikan kosong atau hanya berisi spasi. Jika input kosong, pengguna akan diminta memasukkan data kembali sampai memberikan teks yang sesuai.
 
 **Contoh validasi terhadap ID yang sudah ada:**
 
 <img width="234" height="75" alt="Screenshot 2026-10-05 214840" src="https://github.com/user-attachments/assets/ee805345-17db-4c29-b94a-ac01040fcfa3" /> <img width="202" height="77" alt="Screenshot 2026-10-05 214916" src="https://github.com/user-attachments/assets/4eefa053-d788-4db6-a379-f0f7998501af" /> <img width="196" height="80" alt="Screenshot 2026-10-05 214942" src="https://github.com/user-attachments/assets/8310723c-b1c9-4cdd-8965-7d58c29d9423" />
 
-d. Validasi juga digunakan pada proses input menu. Jika pengguna memasukkan pilihan selain pilihan yang tersedia, program akan menampilkan pesan bahwa pilihan tidak ada sehingga pengguna dapat memilih kembali menu yang sesuai. Validasi tersebut digunakan pada proses tambah data, update data, dan bagian lain yang membutuhkan input dari pengguna. Dengan adanya validasi, kesalahan input dapat dikurangi dan program dapat tetap berjalan ketika pengguna memasukkan data yang tidak sesuai.
+Program juga melakukan validasi terhadap ID siswa, tutor, dan jadwal. Setiap ID diperiksa sebelum data baru ditambahkan. Pengecekan tersebut dilakukan menggunakan method isIdSiswaAda(), isIdTutorAda(), dan isIdJadwalAda(). Jika ID yang dimasukkan sudah digunakan, program akan menampilkan pesan bahwa ID tersebut sudah digunakan dan pengguna harus memasukkan ID lain. Dengan begitu, data yang ditambahkan tidak menggunakan ID yang sama dengan data sebelumnya.
 
 **Contoh validasi proses input menu:**
 
 <img width="260" height="77" alt="Screenshot 2026-10-05 215104" src="https://github.com/user-attachments/assets/f7ccacd8-e549-43cd-be1d-c38ac958c027" />
+
+Validasi juga digunakan pada proses input menu. Jika pengguna memasukkan pilihan selain pilihan yang tersedia, program akan menampilkan pesan bahwa pilihan tidak ada sehingga pengguna dapat memilih kembali menu yang sesuai. Validasi tersebut digunakan pada proses tambah data, update data, dan bagian lain yang membutuhkan input dari pengguna. Dengan adanya validasi, kesalahan input dapat dikurangi dan program dapat tetap berjalan ketika pengguna memasukkan data yang tidak sesuai.
 
 ## Penerapan Encapsulation
 Encapsulation diterapkan dengan membuat atribut pada class menjadi private melalui penggunaan Access Modifier. Dengan menggunakan private, atribut tidak dapat diakses dan diubah secara langsung dari luar class. Pada class Pengguna, atribut id dan nama dibuat private. Kedua atribut tersebut memiliki getter untuk mengambil nilainya dan setter untuk mengubah nilainya.
@@ -144,18 +144,14 @@ a. Getter digunakan ketika program membutuhkan informasi yang tersimpan. Contohn
 
 b. Setter digunakan ketika terdapat perubahan data. Contohnya, ketika pengguna melakukan Update Data Siswa, program menggunakan setNama(), setJenjang(), dan setMataPelajaran() untuk memasukkan informasi baru.
 
-**Encapsulation getter dan setter pada class**
-
-Encapsulation dapat dilihat pada class Siswa. Atribut jenjang dan mataPelajaran dibuat private dan masing-masing memiliki getter dan setter. Dengan demikian, program dapat mengambil data menggunakan getJenjang() dan getMataPelajaran(), serta mengubahnya menggunakan setJenjang() dan setMataPelajaran().
-
-**Penerapan encapsulation pada siswa:**
+**Penerapan encapsulation getter dan setter pada class siswa**
 
 <img width="582" height="370" alt="Screenshot 2026-10-05 215808" src="https://github.com/user-attachments/assets/52df3362-56f0-42a8-a2f8-070016c1fb4c" />
 
+Encapsulation dapat dilihat pada class Siswa. Atribut jenjang dan mataPelajaran dibuat private dan masing-masing memiliki getter dan setter. Dengan demikian, program dapat mengambil data menggunakan getJenjang() dan getMataPelajaran(), serta mengubahnya menggunakan setJenjang() dan setMataPelajaran().
+
 ## Penerapan Inheritance
 Inheritance diterapkan dengan menggunakan class Pengguna sebagai superclass. Class Pengguna digunakan untuk menyimpan data yang sama-sama dimiliki oleh siswa dan tutor, yaitu ID dan nama.
-
-a. Class Siswa dan Tutor menjadi subclass dari Pengguna. Pada class Siswa digunakan hubungan: "public class Siswa extends Pengguna". Sedangkan pada class Tutor digunakan: "public class Tutor extends Pengguna". Dengan menggunakan extends, Siswa dan Tutor dapat menggunakan data dan method yang berasal dari Pengguna.
 
 **Penerapan Inheritence extends pada masing-masing subclass siswa dan tutor:**
 
@@ -163,7 +159,7 @@ a. Class Siswa dan Tutor menjadi subclass dari Pengguna. Pada class Siswa diguna
 
 <img width="230" height="15" alt="image" src="https://github.com/user-attachments/assets/441b92e3-5768-4d18-951b-7c77acd10ff1" />
 
-b. Siswa memiliki data tambahan berupa jenjang dan mataPelajaran. Tutor memiliki data tambahan berupa keahlian dan noTelepon. Jadi, data yang umum untuk keduanya diletakkan pada Pengguna, sedangkan data yang berbeda diletakkan pada masing-masing class. Pada constructor Siswa dan Tutor juga digunakan super(id, nama). Bagian tersebut digunakan untuk mengirim nilai ID dan nama ke constructor Pengguna ketika object Siswa atau Tutor dibuat. Contohnya, ketika program membuat data siswa baru, program tidak perlu membuat ulang bagian ID dan nama sebagai atribut baru di dalam Siswa. Siswa cukup menggunakan atribut yang sudah dimiliki dari Pengguna, kemudian menambahkan data khusus siswa berupa jenjang dan mata pelajaran. Hal yang sama berlaku pada Tutor. Tutor menggunakan ID dan nama dari Pengguna, kemudian memiliki tambahan berupa keahlian dan nomor telepon.
+Class Siswa dan Tutor menjadi subclass dari Pengguna. Pada class Siswa digunakan hubungan: "public class Siswa extends Pengguna". Sedangkan pada class Tutor digunakan: "public class Tutor extends Pengguna". Dengan menggunakan extends, Siswa dan Tutor dapat menggunakan data dan method yang berasal dari Pengguna.
 
 **Tambahan atribut pada masing-masing subclass siswa dan tutor:**
 
@@ -171,7 +167,7 @@ b. Siswa memiliki data tambahan berupa jenjang dan mataPelajaran. Tutor memiliki
 
 <img width="575" height="73" alt="image" src="https://github.com/user-attachments/assets/af07be2c-a81a-4d02-b69d-651a5bfe9b46" />
 
-c. Penerapan inheritance membuat data yang sama tidak perlu dibuat berulang pada class Siswa dan Tutor. Data yang bersifat umum ditempatkan pada Pengguna, sedangkan data yang bersifat khusus ditempatkan pada masing-masing subclass. Dengan susunan tersebut, hubungan antara Pengguna, Siswa, dan Tutor dapat terlihat dengan jelas dan struktur class dalam program menjadi lebih teratur.
+Siswa memiliki data tambahan berupa jenjang dan mata pelajaran, sedangkan Tutor memiliki keahlian dan nomor telepon. Data umum ID dan nama diletakkan pada class Pengguna, sementara data khusus diletakkan pada masing-masing class. Constructor Siswa dan Tutor menggunakan super(id, nama) untuk mengirim nilai ID dan nama ke constructor Pengguna. Dengan begitu, keduanya tidak perlu membuat ulang atribut ID dan nama, tetapi cukup menggunakan atribut yang diwariskan dari Pengguna dan menambahkan data khusus masing-masing.
 
 ## MVC
 Program menerapkan pemisahan package untuk mengatur bagian-bagian program berdasarkan fungsinya.
@@ -237,7 +233,7 @@ Penerapan method overloading pada class Jadwal terlihat dari penggunaan dua meth
 ## Interface
 Sistem ini menerapkan Interface pada dua bagian utama. Pertama, interface PengelolaData pada package Controller yang mendefinisikan kontrak standar operasi CRUD (tambahData, tampilkanData, updateData, dan hapusData) yang diimplementasikan penuh pada LesPrivatController. Kedua, interface CetakInfo pada package model yang mendeklarasikan kontrak method tampilkanInfo() dan diimplementasikan oleh class Pengguna (serta diturunkan ke Siswa dan Tutor) serta diimplementasikan langsung oleh class Jadwal.
 
-**Interface pada class pengguna:**
+**Penerapan Interface pada class pengguna:**
 
 <img width="325" height="46" alt="image" src="https://github.com/user-attachments/assets/d8d375a7-1596-4f8a-a02a-913376238d9d" />
 
