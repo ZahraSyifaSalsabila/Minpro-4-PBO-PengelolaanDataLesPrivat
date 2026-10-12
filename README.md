@@ -12,6 +12,10 @@ Program ini menyediakan lima menu utama yaitu Tambah Data, Tampilkan Data, Updat
 ### Penjelasan Alur Program⏳
 
 ---
+
+<img width="265" height="66" alt="image" src="https://github.com/user-attachments/assets/0851a7b4-496d-43a2-82fa-1db3025a9e0e" />
+
+
 Ketika program dijalankan melalui class MainApp, program akan menyiapkan Scanner untuk menerima input dari pengguna. Setelah itu, program membuat object yang digunakan untuk mengelola data les privat dan menampilkan menu utama.
 
 Menu utama dijalankan menggunakan perulangan while sehingga menu akan terus muncul dan dapat digunakan berkali-kali selama program masih berjalan. Pilihan yang dimasukkan pengguna kemudian diproses menggunakan switch-case.
